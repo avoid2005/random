@@ -1,0 +1,81 @@
+list database
+  - SHOW DATABASE;
+
+membuat database
+  - CREATE DATABASE nama_database;
+
+gunakan database
+  - USE nama_database;
+  
+list table
+  - SHOW TABLES;
+
+membuat table
+  - CREATE TABLE nama_table (
+      id    INT          NOT NULL,
+      nama  VARCHAR(100) NOT NULL,
+      price INT UNSIGNED NOT NULL DEFAULT 0,
+    ) ENGINE = InnoDB;
+
+melihat isi table
+  - DESCRIBE nama_table;
+
+memodifikasi table
+  - menambahkan column
+    - ALTER TABLE nama_table ADD COLUMN quantity INT UNSIGNED NOT NULL DEFAULT 0;
+    - ALTER TABLE nama_table ADD COLUMN sold     INT UNSIGNED NOT NULL DEFAULT 0;
+
+  - mengubah nama column
+    - ALTER TABLE nama_table RENAME COLUMN nama TO nama_lain;
+    - ALTER TABLE nama_table RENAME COLUMN release TO publish_at;
+        
+  - menghapus column
+    - ALTER TABLE nama_table DROP COLUMN sold;
+
+  - memodifikasi posisi dan tipe data sebuah column
+    - ALTER TABLE nama_table MODIFY gender  VARCHAR(50) AFTER quantity;
+    - ALTER TABLE nama_table MODIFY release TIMESTAMP FIRST;
+
+  - menambahkan primary key
+    - ALTER TABLE nama_table ADD PRIMARY KEY (id);
+
+melihat command untuk membuat table tertentu
+  - SHOW CREATE TABLE nama_table;
+
+membuat ulang table
+  - TRUNCATE nama_table;
+
+menghapus table
+  - DROP TABLE nama_table;
+
+memasukan data ke table
+  - single data 
+    - INSERT INTO nama_table (id, name, price, quantity)
+      VALUES ("p0001", "Mie Yamin", 20000, 100)
+
+  - banyak data sekaligus
+    - INSERT INTO nama_table (id, name, price, quantity) 
+      VALUES ("p0001", "Bala-bala", 1000, 300),
+             ("p0002", "Seblak", 5000, 100),
+             ("p0003", "Mie Ayam", 10000, 50),
+             ("p0004", "Mie Bakso", 10000, 50),
+             ("p0005", "Mie Bakso Herman", 15000, 100),
+             ("p0006", "Mie Bakso Bella", 12000, 30),
+             ("p0007", "Matcha Latte", 5000, 500),
+             ("p0008", "Gehu", 1000, 500),
+             ("p0009", "Bubur Kacang", 2000, 300),
+             ("p0010", "Bubur Sum-sum", 4000, 200),
+             ("p0011", "Nasi Goreng", 10000, 200),
+             ("p0012", "Mie Glosor", 13000, 150),
+             ("p0013", "Nasi Warteg", 15000, 310),
+             ("p0014", "Oseng Tempe", 5000, 220),
+             ("p0015", "Telur Dadar", 4000, 130)
+
+mengambil data dengan select
+  - melihat semua data yang ada di table
+    - SELECT * FROM nama_table;
+
+  - hanya mengambil beberapa column
+    - SELECT id, name FROM nama_table
+
+  
